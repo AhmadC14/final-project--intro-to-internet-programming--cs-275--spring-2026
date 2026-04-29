@@ -1,0 +1,8 @@
+*
+
+!.gitignore
+!.editorconfig
+!README.md
+
+!array-flipper/
+!matrix/
