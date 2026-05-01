@@ -4,8 +4,8 @@
 !.editorconfig
 !README.md
 
-!array-flipper/
-!matrix/
+!array-flipper/**
+!matrix/**
 !index.html
 !gulpfile.js
-!styles/
+!styles/**
