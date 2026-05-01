@@ -1,0 +1,20 @@
+{
+  "name": "final-project--intro-to-internet-programming--cs-275--spring-2026",
+  "version": "1.0.0",
+  "description": "☞ **Plagiarism in any form will result in failing the entire course. You’ve been duly warned.** ☜",
+  "homepage": "https://github.com/SloaneSamele/final-project--intro-to-internet-programming--cs-275--spring-2026#readme",
+  "bugs": {
+    "url": "https://github.com/SloaneSamele/final-project--intro-to-internet-programming--cs-275--spring-2026/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SloaneSamele/final-project--intro-to-internet-programming--cs-275--spring-2026.git"
+  },
+  "license": "ISC",
+  "author": "Sloane",
+  "type": "commonjs",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

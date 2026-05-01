@@ -8,5 +8,6 @@
 !matrix/
 !index.html
 !gulpfile.js
+!package.json
+!package-lock.json
 !styles/
-!package.json/
