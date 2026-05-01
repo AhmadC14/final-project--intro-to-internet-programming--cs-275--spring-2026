@@ -6,8 +6,8 @@
 
 !array-flipper/
 !matrix/
+!styles/
 !index.html
 !gulpfile.js
 !package.json
 !package-lock.json
-!styles/
