@@ -41,10 +41,16 @@ let compressCSS = () => {
     .pipe(dest(`prod/styles`));
 };
 
-let compressJS = () => {
-    return src([`array-flipper/*.js`, `matrix/*.js`])
+let compressJSArray = () => {
+    return src(`array-flipper/*.js`)
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
+        .pipe(dest(`prod/array-flipper`));
+};
+
+let compressJSMatrix = () => {
+    return src(`matrix/*.js`)
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/matrix`));
 };
 
 let serve = () => {
@@ -75,10 +81,17 @@ exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
 exports.compressHTML = compressHTML;
 exports.compressCSS = compressCSS;
-exports.compressJS = compressJS;
+exports.compressJSArray = compressJSArray;
+exports.compressJSMatrix =compressJSMatrix;
 exports.serve = series(
     validateHTML,
     lintCSS,
     lintJS,
     serve
+);
+exports.build = series(
+    compressHTML,
+    compressCSS,
+    compressJSArray,
+    compressJSMatrix
 );
