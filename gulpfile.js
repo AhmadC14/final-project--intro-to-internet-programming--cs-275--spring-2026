@@ -4,7 +4,9 @@ const {src, watch, dest, series} = require(`gulp`),
     jsLinter = require(`gulp-eslint`),
     htmlCompressor = require(`gulp-htmlmin`),
     cssCompressor = require(`gulp-clean-css`),
-    jsCompressor = require(`gulp-uglify`);
+    jsCompressor = require(`gulp-uglify`),
+    browserSync = require(`browser-sync`),
+    reload = browserSync.reload;
 
 let validateHTML = () => {
     return src(`index.html`)
@@ -44,9 +46,39 @@ let compressJS = () => {
         .pipe(jsCompressor())
         .pipe(dest(`prod/scripts`));
 };
+
+let serve = () => {
+    browserSync({
+        notify: true,
+        reloadDelay: 50,
+        server: {
+            baseDir: [
+                `./`
+            ]
+        }
+    });
+    watch(`index.html`, series(validateHTML))
+        .on(`change`, reload);
+
+    watch(`matrix/*.js`, series(lintJS))
+        .on(`change`, reload);
+
+    watch(`array-flipper/*.js`, series(lintJS))
+        .on(`change`, reload);
+
+    watch(`styles/*.css`, lintCSS)
+        .on(`change`, reload);
+};
+
 exports.validateHTML = validateHTML;
 exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
 exports.compressHTML = compressHTML;
 exports.compressCSS = compressCSS;
 exports.compressJS = compressJS;
+exports.serve = series(
+    validateHTML,
+    lintCSS,
+    lintJS,
+    serve
+);
