@@ -3,7 +3,8 @@ const {src, watch, dest, series} = require(`gulp`),
     CSSLinter = require(`gulp-stylelint`),
     jsLinter = require(`gulp-eslint`),
     htmlCompressor = require(`gulp-htmlmin`),
-    cssCompressor = require(`gulp-clean-css`);
+    cssCompressor = require(`gulp-clean-css`),
+    jsCompressor = require(`gulp-uglify`);
 
 let validateHTML = () => {
     return src(`index.html`)
@@ -38,8 +39,14 @@ let compressCSS = () => {
     .pipe(dest(`prod/styles`));
 };
 
+let compressJS = () => {
+    return src([`array-flipper/*.js`, `matrix/*.js`])
+        .pipe(jsCompressor())
+        .pipe(dest(`prod/scripts`));
+};
 exports.validateHTML = validateHTML;
 exports.lintCSS = lintCSS;
 exports.lintJS = lintJS;
 exports.compressHTML = compressHTML;
 exports.compressCSS = compressCSS;
+exports.compressJS = compressJS;
