@@ -95,3 +95,4 @@ exports.build = series(
     compressJSArray,
     compressJSMatrix
 );
+exports.default = serve;
