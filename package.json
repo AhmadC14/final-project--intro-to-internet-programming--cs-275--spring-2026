@@ -18,6 +18,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
     "gulp-html": "^6.1.0",
     "gulp-stylelint": "^13.0.0"
   }

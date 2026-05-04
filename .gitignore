@@ -8,6 +8,7 @@
 !matrix/
 !styles/
 !stylelintrc.json
+!.eslintrc
 !index.html
 !gulpfile.js
 !package.json
