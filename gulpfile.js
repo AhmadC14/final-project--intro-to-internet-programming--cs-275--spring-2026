@@ -10,3 +10,23 @@ const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
 let browserChoice = 'default';
+
+const paths = {
+    html: ['array-flipper/**/*.html', 'matrix/**/*.html'],
+    js: ['array-flipper/**/*.js', 'matrix/**/*.js'],
+    css: ['array-flipper/**/*.css', 'matrix/**/*.css']
+};
+
+let validateHTML = () => {
+    return src(paths.html)
+        .pipe(htmlValidator(undefined));
+};
+
+let compressHTML = () => {
+    return src(paths.html, { base: './' })
+        .pipe(htmlCompressor({collapseWhitespace: true}))
+        .pipe(dest('prod'));
+};
+
+exports.validateHTML = validateHTML;
+exports.compressHTML = compressHTML;
