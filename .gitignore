@@ -4,5 +4,9 @@
 !.editorconfig
 !README.md
 
+!package.json
+!package-lock.json
+!gulpfile.js
+
 !array-flipper/
 !matrix/
