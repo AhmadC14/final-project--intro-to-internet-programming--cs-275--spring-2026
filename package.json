@@ -17,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/jgaryvi-coder/final-project--intro-to-internet-programming--cs-275--spring-2026/issues"
   },
-  "homepage": "https://github.com/jgaryvi-coder/final-project--intro-to-internet-programming--cs-275--spring-2026#readme"
+  "homepage": "https://github.com/jgaryvi-coder/final-project--intro-to-internet-programming--cs-275--spring-2026#readme",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "browser-sync": "^3.0.4",
+    "del": "^6.1.1",
+    "gulp": "^5.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-html": "^6.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2"
+  }
 }
