@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Internet Programming — Final Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 { margin-bottom: 2rem; color: #2c3e50; }
+        .nav-container { display: flex; gap: 20px; }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 200px;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h2 { margin: 0; font-size: 1.25rem; color: #3498db; }
+    </style>
+</head>
+<body>
+    <h1>Final Project Dashboard</h1>
+    <div class="nav-container">
+        <a href="matrix/index.html" class="card">
+            <h2>Program 1</h2>
+            <p>Diamond Generator</p>
+        </a>
+        <a href="array-flipper/index.html" class="card">
+            <h2>Program 2</h2>
+            <p>Array Flipper</p>
+        </a>
+    </div>
+</body>
+</html>

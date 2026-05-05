@@ -78,7 +78,6 @@ let serve = () => {
                 'temp',
                 './'
             ],
-            directory: true
         }
     });
 
