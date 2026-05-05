@@ -1,6 +1,6 @@
 const { src, dest, series, watch } = require('gulp');
 const CSSLinter = require('gulp-stylelint');
-const del = require('del'); // Adjusted for v6 compatibility
+const del = require('del');
 const babel = require('gulp-babel');
 const htmlCompressor = require('gulp-htmlmin');
 const htmlValidator = require('gulp-html');
@@ -55,9 +55,59 @@ let lintCSS = () => {
         .pipe(dest('temp'));
 };
 
+let copyUnprocessedAssetsForProd = () => {
+    return src([
+        'array-flipper/img/**',
+        'matrix/img/**'
+    ], { base: './', allowEmpty: true })
+        .pipe(dest('prod'));
+};
+
+async function clean() {
+    const foldersToDelete = await del(['temp', 'prod']);
+    console.log('The following directories were deleted:', foldersToDelete);
+}
+
+let serve = () => {
+    browserSync({
+        notify: true,
+        reloadDelay: 50,
+        browser: browserChoice,
+        server: {
+            baseDir: [
+                'temp',
+                './'
+            ],
+            directory: true
+        }
+    });
+
+    watch(paths.js, series(lintJS, transpileJSForDev)).on('change', reload);
+    watch(paths.css, lintCSS).on('change', reload);
+    watch(paths.html, validateHTML).on('change', reload);
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintCSS = lintCSS;
+
+exports.clean = clean;
+
+exports.serve = series(
+    clean,
+    validateHTML,
+    lintCSS,
+    lintJS,
+    transpileJSForDev,
+    serve
+);
+
+exports.build = series(
+    clean,
+    compressHTML,
+    transpileJSForProd,
+    copyUnprocessedAssetsForProd
+);
