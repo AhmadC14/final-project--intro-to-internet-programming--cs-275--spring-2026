@@ -28,5 +28,36 @@ let compressHTML = () => {
         .pipe(dest('prod'));
 };
 
+let lintJS = () => {
+    return src(paths.js)
+        .pipe(jsLinter())
+        .pipe(jsLinter.formatEach('compact'));
+};
+
+let transpileJSForDev = () => {
+    return src(paths.js, { base: './' })
+        .pipe(babel())
+        .pipe(dest('temp'));
+};
+
+let transpileJSForProd = () => {
+    return src(paths.js, { base: './' })
+        .pipe(babel())
+        .pipe(jsCompressor())
+        .pipe(dest('prod'));
+};
+let lintCSS = () => {
+    return src(paths.css, { base: './' })
+        .pipe(CSSLinter({
+            failAfterError: false,
+            reporters: [{formatter: 'string', console: true}]
+        }))
+        .pipe(dest('temp'));
+};
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
+exports.lintJS = lintJS;
+exports.transpileJSForDev = transpileJSForDev;
+exports.transpileJSForProd = transpileJSForProd;
+exports.lintCSS = lintCSS;
