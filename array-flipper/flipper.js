@@ -23,6 +23,18 @@ const initArrayFlipper = () => {
     const matrix = Array(n).fill().map(() => Array(n).fill(0));
     resultLog += formatMatrix(matrix, `Printing matrix with default values`);
 
+    resultLog += `Populating matrix...matrix populated\n\n`;
+
+    const totalElements = n * n;
+
+    for (let i = 0; i < totalElements; i++) {
+        const row = Math.floor(i / n);
+        const col = i % n;
+        matrix[row][col] = i + 1;
+    }
+
+    resultLog += formatMatrix(matrix, `Printing matrix`);
+
     output.textContent = resultLog;
     console.log(resultLog);
 };
