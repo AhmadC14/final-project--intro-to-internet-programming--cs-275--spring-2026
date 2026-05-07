@@ -35,6 +35,22 @@ const initArrayFlipper = () => {
 
     resultLog += formatMatrix(matrix, `Printing matrix`);
 
+    resultLog += `Flipping matrix...matrix flipped\n\n`;
+
+    for (let i = 0; i < totalElements; i++) {
+        const row = Math.floor(i / n);
+        const col = i % n;
+
+        if (row + col < n - 1) {
+            const targetRow = n - 1 - col;
+            const targetCol = n - 1 - row;
+
+            [matrix[row][col], matrix[targetRow][targetCol]] = [matrix[targetRow][targetCol], matrix[row][col]];
+        }
+    }
+
+    resultLog += formatMatrix(matrix, `Printing flipped matrix`);
+
     output.textContent = resultLog;
     console.log(resultLog);
 };
