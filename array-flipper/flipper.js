@@ -22,30 +22,31 @@ const initArrayFlipper = () => {
 
     const matrix = Array(n).fill().map(() => Array(n).fill(0));
     resultLog += formatMatrix(matrix, `Printing matrix with default values`);
-
     resultLog += `Populating matrix...matrix populated\n\n`;
 
     const totalElements = n * n;
+    const totalIterations = totalElements * 2;
 
-    for (let i = 0; i < totalElements; i++) {
-        const row = Math.floor(i / n);
-        const col = i % n;
-        matrix[row][col] = i + 1;
-    }
+    for (let i = 0; i < totalIterations; i++) {
+        const isPopulating = i < totalElements;
 
-    resultLog += formatMatrix(matrix, `Printing matrix`);
+        const index = i % totalElements;
+        const row = Math.floor(index / n);
+        const col = index % n;
 
-    resultLog += `Flipping matrix...matrix flipped\n\n`;
+        if (isPopulating) {
+            matrix[row][col] = index + 1;
 
-    for (let i = 0; i < totalElements; i++) {
-        const row = Math.floor(i / n);
-        const col = i % n;
-
-        if (row + col < n - 1) {
-            const targetRow = n - 1 - col;
-            const targetCol = n - 1 - row;
-
-            [matrix[row][col], matrix[targetRow][targetCol]] = [matrix[targetRow][targetCol], matrix[row][col]];
+            if (index === totalElements - 1) {
+                resultLog += formatMatrix(matrix, `Printing matrix`);
+                resultLog += `Flipping matrix...matrix flipped\n\n`;
+            }
+        } else {
+            if (row + col < n - 1) {
+                const targetRow = n - 1 - col;
+                const targetCol = n - 1 - row;
+                [matrix[row][col], matrix[targetRow][targetCol]] = [matrix[targetRow][targetCol], matrix[row][col]];
+            }
         }
     }
 
