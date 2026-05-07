@@ -1,11 +1,13 @@
 const output = document.getElementById(`output`);
 
 const drawDiamond = () => {
-    const userInput = window.prompt(`Enter a number:`);
+    const userInput = window.prompt(`Enter a number between 1 and 15:`);
     const n = parseInt(userInput, 10);
 
-    if (isNaN(n) || n <= 0) {
-        output.textContent = `Please enter a valid positive integer.`;
+    if (isNaN(n) || n <= 0 || n > 15) {
+        const errorMsg = `Invalid input. Please refresh and enter a positive integer no larger than 15.`;
+        output.textContent = errorMsg;
+        console.error(errorMsg);
         return;
     }
 
