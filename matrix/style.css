@@ -1,0 +1,39 @@
+body {
+  background-color: #222;
+  color: #eee;
+  font-family: 'segoe ui', tahoma, geneva, verdana, sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+main {
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+h1 {
+  color: #39d;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+pre {
+  background-color: #000;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #0f0;
+  font-family: 'courier new', courier, monospace;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 2rem auto;
+  overflow-x: auto;
+  padding: 2rem;
+  width: max-content;
+}
