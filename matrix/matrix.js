@@ -4,16 +4,15 @@ let numOfStar = 3;
 let topHalf = true
 let matrix = document.createElement(`table`);
 let tableHeader = document.createElement(`thead`);
+let tableBody = document.createElement(`tbody`);
 let tableFooter = document.createElement(`tfoot`);
-let star = document.createElement(`th`);
-let space = document.createElement(`th`);
+let singleStar = document.createElement(`th`);
 let firstRow = document.createElement(`tr`);
 let body = document.querySelector(`body`);
 
-star.colSpan = matrixSize;
-star.innerText = `*`;
-space.innerText = ` `;
-firstRow.append(star.cloneNode(true));
+singleStar.colSpan = matrixSize;
+singleStar.innerText = `*`;
+firstRow.append(singleStar.cloneNode(true));
 tableHeader.appendChild(firstRow);
 tableFooter.appendChild(firstRow.cloneNode(true));
 matrix.appendChild(tableHeader);
@@ -28,5 +27,6 @@ for(let i = 1; i <= matrixSize - 2; ++i){
 
     topHalf = (i >= parseInt((matrixSize - 2)/2)) ? false : true;
 }
+matrix.append(tableBody);
 matrix.appendChild(tableFooter);
 body.append(matrix);
