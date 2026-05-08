@@ -1,18 +1,21 @@
 let matrixSize,numOfSpace,numOfStar;
-let topHalf = true;
-let matrix = document.createElement(`table`);
-let tableHeader = document.createElement(`thead`);
-let tableBody = document.createElement(`tbody`);
-let tableFooter = document.createElement(`tfoot`);
-let singleStar = document.createElement(`th`);
-let firstRow = document.createElement(`tr`);
 let body = document.querySelector(`body`);
 let button = document.getElementById(`matrix-button`);
 
 let generateMatrix = () =>{
+    let topHalf = true;
+
+    let matrix = document.createElement(`table`);
+    let tableHeader = document.createElement(`thead`);
+    let tableBody = document.createElement(`tbody`);
+    let tableFooter = document.createElement(`tfoot`);
+    let singleStar = document.createElement(`th`);
+    let firstRow = document.createElement(`tr`);
+
     singleStar.colSpan = matrixSize;
     singleStar.innerText = `*`;
     firstRow.append(singleStar.cloneNode(true));
+
     tableHeader.appendChild(firstRow);
     tableFooter.appendChild(firstRow.cloneNode(true));
     matrix.appendChild(tableHeader);
@@ -44,6 +47,12 @@ let generateMatrix = () =>{
 
     matrix.append(tableBody);
     matrix.appendChild(tableFooter);
+    let existingTable = document.querySelector(`table`)
+
+    if(existingTable){
+        existingTable.remove();
+    }
+
     body.append(matrix);
 }
 
