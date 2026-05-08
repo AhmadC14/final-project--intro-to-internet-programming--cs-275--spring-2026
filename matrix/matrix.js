@@ -47,4 +47,20 @@ let generateMatrix = () =>{
     body.append(matrix);
 }
 
-button.addEventListener(`click`,);
+let updateMatrixElement = () => {
+    let sizeInput = prompt(`Enter the size of a matrix`);
+
+    if (sizeInput === null) return;
+
+    if (isNaN(sizeInput) || sizeInput.trim() === "" || sizeInput < 3) {
+        alert("Please enter a valid number (minimum 3).");
+    } else {
+        matrixSize = (sizeInput % 2 === 1) ? parseInt(sizeInput) : parseInt(sizeInput) + 1;
+        numOfSpace = Math.floor((sizeInput / 2) - 1);
+        numOfStar = (sizeInput % 2 === 1) ? 3: 2;
+        generateMatrix();
+        console.log(`Input: ${sizeInput} | Adjusted Size: ${matrixSize} | Start Spaces: ${numOfSpace}`);
+    }
+};
+
+button.addEventListener(`click`, updateMatrixElement);
