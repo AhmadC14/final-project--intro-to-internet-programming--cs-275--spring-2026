@@ -18,8 +18,22 @@ tableFooter.appendChild(firstRow.cloneNode(true));
 matrix.appendChild(tableHeader);
 
 for(let i = 1; i <= matrixSize - 2; ++i){
-    let row = document.createElement(`th`);
+    let row = document.createElement(`tr`);
+    let space = document.createElement(`th`);
+    let star = document.createElement(`th`);
 
+    star.innerText = `*`;
+    space.innerText = ` `;
+
+    space.colSpan = numOfSpace;
+
+    if(numOfSpace > 0){
+        row.appendChild(space);
+    }
+    for(let x = 0; x < numOfStar; ++x){
+        row.append(star.cloneNode(true));
+    }
+    tableBody.appendChild(row);
     console.log(`Row:${i} Number of space: ${numOfSpace} Stars: ${numOfStar}\n`);
 
     numOfSpace = (topHalf)? --numOfSpace : ++numOfSpace;
