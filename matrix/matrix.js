@@ -1,5 +1,5 @@
 let matrixSize,numOfSpace,numOfStar;
-let body = document.querySelector(`body`);
+let body = document.getElementById(`diamond`);
 let button = document.getElementById(`matrix-button`);
 
 let generateMatrix = () =>{
