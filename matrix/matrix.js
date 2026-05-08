@@ -61,8 +61,8 @@ let updateMatrixElement = () => {
 
     if (sizeInput === null) return;
 
-    if (isNaN(sizeInput) || sizeInput.trim() === "" || sizeInput < 3) {
-        alert("Please enter a valid number (minimum 3).");
+    if (isNaN(sizeInput) || sizeInput.trim() === "" || sizeInput <= 1) {
+        alert("Please enter a valid number at least greater than 1.");
     } else {
         matrixSize = (sizeInput % 2 === 1) ? parseInt(sizeInput) : parseInt(sizeInput) + 1;
         numOfSpace = Math.floor((sizeInput / 2) - 1);
