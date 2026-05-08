@@ -30,11 +30,10 @@ for(let i = 1; i <= matrixSize - 2; ++i){
     if(numOfSpace > 0){
         row.appendChild(space);
     }
-    // for(let x = 0; x < numOfStar; ++x){
-    //     row.append(star.cloneNode(true));
-    // }
+
     row.append(...Array.from({ length: numOfStar }, () => star.cloneNode(true)));
     tableBody.appendChild(row);
+
     console.log(`Row:${i} Number of space: ${numOfSpace} Stars: ${numOfStar}\n`);
 
     numOfSpace = (topHalf)? --numOfSpace : ++numOfSpace;
@@ -42,6 +41,7 @@ for(let i = 1; i <= matrixSize - 2; ++i){
 
     topHalf = (i >= parseInt((matrixSize - 2)/2)) ? false : true;
 }
+
 matrix.append(tableBody);
 matrix.appendChild(tableFooter);
 body.append(matrix);
