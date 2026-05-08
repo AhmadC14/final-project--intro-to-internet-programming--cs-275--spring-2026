@@ -18,14 +18,15 @@ tableHeader.appendChild(firstRow);
 tableFooter.appendChild(firstRow.cloneNode(true));
 matrix.appendChild(tableHeader);
 
-for(let i = 0; i < matrixSize - 2; ++i){
+for(let i = 1; i <= matrixSize - 2; ++i){
     let row = document.createElement(`th`);
 
     console.log(`Row:${i} Number of space: ${numOfSpace} Stars: ${numOfStar}\n`);
+
     numOfSpace = (topHalf)? --numOfSpace : ++numOfSpace;
     numOfStar = (topHalf) ? numOfStar + 2 : numOfStar - 2;
 
-    topHalf = (i === parseInt((matrixSize - 2)/2)) ? false : true;
+    topHalf = (i >= parseInt((matrixSize - 2)/2)) ? false : true;
 }
 matrix.appendChild(tableFooter);
 body.append(matrix);
