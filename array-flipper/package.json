@@ -1,0 +1,26 @@
+{
+  "name": "array-flipper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "babelify": "^10.0.0",
+    "browser-sync": "^3.0.4",
+    "browserify": "^17.0.1",
+    "gulp": "^5.0.1",
+    "gulp-rename": "^2.1.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^3.0.2",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
