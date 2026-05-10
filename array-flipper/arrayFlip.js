@@ -1,7 +1,7 @@
 let arrayButton = document.getElementById(`array-button`);
 let arrayFlipButton = document.getElementById(`flip-button`);
 let arrayDiv = document.getElementById(`array`);
-let size, matrix;
+let matrix;
 
 let generateArray = () =>{
     let input = prompt(`Enter the size of the Array`);
@@ -12,9 +12,14 @@ let generateArray = () =>{
         alert("Please enter a valid number at least greater than 0.");
     }
     else{
-        size = parseInt(input);
-        matrix = Array.from({ length: size }, () => new Array(size).fill(0));
-        console.log(matrix, size);
+        let size = parseInt(input);
+        let counter = 1;
+
+        matrix = Array.from({ length: size }, () =>
+            Array.from({ length: size }, () => counter++)
+        );
+
+        console.log(matrix);
     }
 }
 
