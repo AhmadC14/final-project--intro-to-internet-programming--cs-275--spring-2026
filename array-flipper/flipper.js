@@ -10,8 +10,8 @@ const initArrayFlipper = () => {
     const userInput = window.prompt(`Please enter the size of your matrix:`);
     const n = parseInt(userInput, 10);
 
-    if (isNaN(n) || n <= 0 || n > 15) {
-        const errorMsg = `Invalid input. Please refresh and enter a positive integer no larger than 15.`;
+    if (isNaN(n) || n <= 0 || n > 8) {
+        const errorMsg = `Invalid input. Please refresh and enter a positive integer no larger than 8.`;
         output.textContent = errorMsg;
         console.error(errorMsg);
         return;
