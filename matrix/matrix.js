@@ -20,8 +20,8 @@ let generateMatrix = () =>{
     tableFooter.appendChild(firstRow.cloneNode(true));
     matrix.appendChild(tableHeader);
 
-    for(let i = 1; i <= matrixSize - 2; ++i){
-        let row = document.createElement(`tr`);
+    for(let row = 1; row <= matrixSize - 2; ++row){
+        let tempRow = document.createElement(`tr`);
         let space = document.createElement(`th`);
         let star = document.createElement(`th`);
 
@@ -31,18 +31,16 @@ let generateMatrix = () =>{
         space.colSpan = numOfSpace;
 
         if(numOfSpace > 0){
-            row.appendChild(space);
+            tempRow.appendChild(space);
         }
 
-        row.append(...Array.from({ length: numOfStar }, () => star.cloneNode(true)));
-        tableBody.appendChild(row);
-
-        console.log(`Row:${i} Number of space: ${numOfSpace} Stars: ${numOfStar}\n`);
+        tempRow.append(...Array.from({ length: numOfStar }, () => star.cloneNode(true)));
+        tableBody.appendChild(tempRow);
 
         numOfSpace = (topHalf)? --numOfSpace : ++numOfSpace;
         numOfStar = (topHalf) ? numOfStar + 2 : numOfStar - 2;
 
-        topHalf = (i >= parseInt((matrixSize - 2)/2)) ? false : true;
+        topHalf = (row  >= parseInt((matrixSize - 2)/2)) ? false : true;
     }
 
     matrix.append(tableBody);
@@ -68,7 +66,6 @@ let updateMatrixElement = () => {
         numOfSpace = Math.floor((sizeInput / 2) - 1);
         numOfStar = (sizeInput % 2 === 1) ? 3: 2;
         generateMatrix();
-        console.log(`Input: ${sizeInput} | Adjusted Size: ${matrixSize} | Start Spaces: ${numOfSpace}`);
     }
 };
 
