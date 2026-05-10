@@ -20,7 +20,7 @@ let generateMatrix = () =>{
     tableFooter.appendChild(firstRow.cloneNode(true));
     matrix.appendChild(tableHeader);
 
-    for(let row = 1; row <= matrixSize - 2; ++row){
+    for(let row = 0; row < matrixSize - 2; ++row){
         let tempRow = document.createElement(`tr`);
         let space = document.createElement(`th`);
         let star = document.createElement(`th`);
@@ -40,7 +40,7 @@ let generateMatrix = () =>{
         numOfSpace = (topHalf)? --numOfSpace : ++numOfSpace;
         numOfStar = (topHalf) ? numOfStar + 2 : numOfStar - 2;
 
-        topHalf = (row  >= parseInt((matrixSize - 2)/2)) ? false : true;
+        topHalf = (row  > parseInt((matrixSize - 2)/2)) ? false : true;
     }
 
     matrix.append(tableBody);
