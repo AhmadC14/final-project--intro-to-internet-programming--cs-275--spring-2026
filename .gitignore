@@ -3,6 +3,7 @@
 !.gitignore
 !.editorconfig
 !README.md
+!styles.css
 
 !array-flipper/
 !matrix/
