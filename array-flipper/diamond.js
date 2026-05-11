@@ -10,7 +10,7 @@ const generateDiamond = (num = 3) => {
   const isEven = num % 2 === 0;
   const half = Math.floor(num / 2);
 
-  for (let row = 0; row <= num; row++) {
+  for (let row = 0; row < num; row++) {
     let spaces = "";
     let pluses = "";
 
@@ -22,11 +22,6 @@ const generateDiamond = (num = 3) => {
       if (0 === row || 1 === row) {
         spaces = " ".repeat(num - row);
         pluses = "+ ".repeat(row + 1).trim();
-      }
-
-      else if (row === num) {
-        spaces = " ".repeat(num);
-        pluses = "+ ";
       }
 
       else if (row < half) {
@@ -47,6 +42,11 @@ const generateDiamond = (num = 3) => {
       }
     }
     result += spaces + pluses + "\n";
+    if (row + 1 === num && num % 2 == 0) {
+      spaces = " ".repeat(num);
+      pluses = "+ ";
+      result += spaces + pluses + "\n";
+    }
   }
   return result;
 };
