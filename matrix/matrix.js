@@ -11,4 +11,7 @@ let total = size * size;
 let number = 1;
 let output = "";
 let phase = 0;
+
+for(let row = 0; row < total; row++){
+
 }
