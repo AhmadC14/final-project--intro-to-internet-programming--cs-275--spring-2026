@@ -1,4 +1,4 @@
-const size = Number(window.prompt('Enter a number'));
+const size = Number(window.prompt('Enter a number of your choice:'));
 
 const output = document.querySelector('#output');
 
