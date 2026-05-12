@@ -16,7 +16,7 @@ for(let row = 0; row < total; row++){
 
     if(phase === 0){
 
-        if (column === 0){ //(column === size - 1) {
+        if (column === 0){
             console.log("0 ".repeat(size));
         }
 
