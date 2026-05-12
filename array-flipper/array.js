@@ -11,7 +11,8 @@ for(let row = 0; row < userSize; row++){
     } else {
         if(row <= Math.floor(userSize / 2)){
             stars = (row * 2) + 1;
-            console.log("*".repeat(stars));
+            spaces = Math.floor(userSize / 2) - row;
+            console.log(" ".repeat(spaces) + "*".repeat(stars));
         } else {
             stars = (userSize - row) * 2 - 1;
             spaces = (userSize + 1) / 2 - row;
