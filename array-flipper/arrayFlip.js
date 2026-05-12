@@ -43,4 +43,34 @@ let generateArray = () =>{
     }
 }
 
+let flipMatrix = () => {
+    if (arrayDiv.innerHTML === ``) generateArray();
+
+    let n = matrix.length;
+    let totalElements = n * n;
+    let lastIndex = n - 1;
+
+    for (let i = 0; i < Math.floor(totalElements / 2); i++) {
+        let r1 = Math.floor(i / n);
+        let c1 = i % n;
+        let r2 = lastIndex - r1;
+        let c2 = lastIndex - c1;
+
+        let onAnti1 = (r1 + c1 === lastIndex);
+        let onAnti2 = (r2 + c2 === lastIndex);
+
+        if (!onAnti1 && !onAnti2) {
+            swap(r1, c1, r2, c2);
+        }
+    }
+
+    displayMatrix(...matrix);
+};
+
+let swap = (r1, c1, r2, c2) => {
+    let temp = matrix[r1][c1];
+    matrix[r1][c1] = matrix[r2][c2];
+    matrix[r2][c2] = temp;
+};
 arrayButton.addEventListener(`click`, generateArray);
+arrayFlipButton.addEventListener(`click`, flipMatrix);
