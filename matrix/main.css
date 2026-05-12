@@ -1,0 +1,16 @@
+td {
+  font-size: medium;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(100, 183, 186);
+}
+
+table {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+}
+
+body {
+  background-color: beige;
+}
