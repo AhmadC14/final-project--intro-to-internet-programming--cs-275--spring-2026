@@ -12,8 +12,8 @@ const runArrayFlipper = () => {
     const matrixSize = parseInt(userInput, 10);
 
     // Validate user input
-    if (isNaN(matrixSize) || matrixSize <= 0 || matrixSize > 8) {
-        const errorMessage = `Invalid input. Please refresh and enter a positive integer no larger than 8.`;
+    if (isNaN(matrixSize) || matrixSize <= 0) {
+        const errorMessage = `Invalid input. Please enter a positive integer.`;
         outputElement.textContent = errorMessage;
         console.error(errorMessage);
         return;
