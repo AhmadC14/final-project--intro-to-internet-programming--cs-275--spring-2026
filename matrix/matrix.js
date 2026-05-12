@@ -16,4 +16,11 @@ for(let row = 0; row < total; row++){
 
     let column = row % size
 
+    if(phase === 0){
+        output += "0 ";
+
+        if (column === size - 1) {
+            console.log(output.trim());
+            output = "";
+        }
 }
