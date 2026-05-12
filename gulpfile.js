@@ -29,10 +29,10 @@ const lintJs = () => src(paths.js)
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 
-const transpileJs = () => src(paths.js)
-    .pipe(babel({ presets: ['@babel/preset-env'] }))
-    .pipe(dest('scripts'))
-    .pipe(browserSync.stream());
+// const transpileJs = () => src(paths.js)
+//     .pipe(babel({ presets: ['@babel/preset-env'] }))
+//     .pipe(dest('scripts'))
+//     .pipe(browserSync.stream());
 
 const reload = done => {
     browserSync.reload();
@@ -45,30 +45,30 @@ const serve = () => {
     watch('styles/main.css', series(lintCss, reload));
 };
 
-const minCss = () => src(paths.css)
-    .pipe(cleanCss())
-    .pipe(dest(paths.prod + 'styles'));
+// const minCss = () => src(paths.css)
+//     .pipe(cleanCss())
+//     .pipe(dest(paths.prod + 'styles'));
 
-const minJs = () => src(paths.js)
-    .pipe(babel({ presets: ['@babel/preset-env'] }))
-    .pipe(terser())
-    .pipe(dest(paths.prod + 'scripts'));
+// const minJs = () => src(paths.js)
+//     .pipe(babel({ presets: ['@babel/preset-env'] }))
+//     .pipe(terser())
+//     .pipe(dest(paths.prod + 'scripts'));
 
-const minHtml = () => src(paths.html)
-    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
-    .pipe(dest(paths.prod));
+// const minHtml = () => src(paths.html)
+//     .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+//     .pipe(dest(paths.prod));
 
-const copy = () => src([
-    './*.*',
-    '!./*.html',
-    '!./*.css',
-    '!./*.js'
-],
-{ dot: true })
-    .pipe(dest(paths.prod));
+// const copy = () => src([
+//     './*.*',
+//     '!./*.html',
+//     '!./*.css',
+//     '!./*.js'
+// ],
+// { dot: true })
+//     .pipe(dest(paths.prod));
 
-const clean = () => ([paths.prod]);
+// const clean = () => ([paths.prod]);
 
 exports.default = series(parallel(lintCss, lintJs, transpileJs), serve);
-exports.build = series(parallel(minCss, minJs, minHtml, copy));
-exports.clean = clean;
+// exports.build = series(parallel(minCss, minJs, minHtml, copy));
+// exports.clean = clean;
