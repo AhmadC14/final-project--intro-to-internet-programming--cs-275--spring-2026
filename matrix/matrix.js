@@ -51,4 +51,10 @@ for(let row = 0; row < total * 3; row++){
             console.log(output.trim());
         }
 
+        if (current === total - 1) {
+            console.log("");
+            console.log("Flipping matrix...matrix flipped");
+            console.log("");
+            console.log("Printing flipped matrix:");
+        }
 }
