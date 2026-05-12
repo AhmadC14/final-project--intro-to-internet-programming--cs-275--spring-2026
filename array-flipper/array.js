@@ -8,9 +8,17 @@ for(let row = 0; row < userSize; row++){
 
     if(Math.floor(userSize % 2 == 0)){
         if(row <= Math.floor(userSize / 2)){
-            stars = (row * 2);
+
+            if(row == 0){
+                stars = 1;
+                spaces = Math.floor(userSize - 1);
+
+            } else {
+                stars = (row * 2);
+                spaces = Math.floor(userSize  - row * 2);
+            }
             // spaces = Math.floor(userSize / 2) - row;
-            console.log(" *".repeat(stars));
+            console.log(" ".repeat(spaces) + " *".repeat(stars));
         } else {
             stars = (userSize - row) * 2;
             // spaces = row - (Math.floor(userSize / 2));
@@ -22,6 +30,7 @@ for(let row = 0; row < userSize; row++){
             stars = (row * 2) + 1;
             spaces = Math.floor(userSize / 2) - row;
             console.log(" ".repeat(spaces) + "*".repeat(stars));
+
         } else {
             stars = (userSize - row) * 2 - 1;
             spaces = row - (Math.floor(userSize / 2));
