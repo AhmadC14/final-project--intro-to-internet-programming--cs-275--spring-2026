@@ -9,5 +9,6 @@ for(let row = 0; row < size; row++){
     console.log("0 ".repeat(size));
 let total = size * size;
 let number = 1;
+let output = "";
 let phase = 0;
 }
