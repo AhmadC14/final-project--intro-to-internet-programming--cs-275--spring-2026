@@ -1,8 +1,15 @@
 let userSize = parseInt(window.prompt("Enter a number: "));
 
 let middle = Math.floor(userSize / 2);
+let height = 0;
 
-for(let row = 0; row < userSize; row++){
+if (userSize % 2 == 0){
+    height = userSize + 1;
+} else {
+    height = userSize;
+}
+
+for(let row = 0; row < height; row++){
     let stars = 0;
     let spaces = 0;
 
