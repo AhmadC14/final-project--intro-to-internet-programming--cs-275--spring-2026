@@ -12,7 +12,10 @@ let phase = 0;
 
 for(let row = 0; row < total * 3; row++){
 
-    let column = row % size
+    let current = row % total;
+    let column = current % size
+    let currentRow = Math.floor(current / size);
+
 
     if(phase === 0){
 
