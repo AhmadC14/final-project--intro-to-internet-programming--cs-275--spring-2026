@@ -14,4 +14,6 @@ let phase = 0;
 
 for(let row = 0; row < total; row++){
 
+    let column = row % size
+
 }
