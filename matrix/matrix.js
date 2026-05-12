@@ -17,13 +17,8 @@ for(let row = 0; row < total * 3; row++){
     let column = current % size
     let currentRow = Math.floor(current / size);
 
-    if(row < total){
-        phase = 0;
-    } else if(row < total * 2){
-        phase = 1;
-    } else {
-        phase = 2;
-    }
+    //let index = row % total;
+
     let phase = Math.floor(row / total);
 
     if(phase === 0){
