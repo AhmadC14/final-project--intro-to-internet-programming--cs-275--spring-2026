@@ -1,5 +1,5 @@
 const diamond = {
-    
+
     generate(diamondSize) {
     if (!Number.isInteger(diamondSize) || diamondSize <= 0) {
         return '[ENTER A POSITIVE INTEGER] >>> ';
@@ -9,7 +9,7 @@ const diamond = {
     const isOdd = diamondSize % 2 === 1;
 
     const totalRows = isOdd ? diamondSize : diamondSize + 1;
-    const midpoint = Math.floor(totalRows / 2);  
+    const midpoint = Math.floor(totalRows / 2);
 
     for (let row = 0; row < totalRows; row++) {
         let line = '';
@@ -18,39 +18,35 @@ const diamond = {
 
             const distance = Math.abs(row - midpoint);
             const stars = diamondSize - distance * 2;
-            const spaces = distance;
-            line = ' '.repeat(spaces) + '*'.repeat(stars);
+            const rowWidth = stars * 2 - 1;
+            const maxWidth = diamondSize * 2 - 1;
+            const leading = (maxWidth - rowWidth) / 2;
+            const starSegment = stars === 1 ? '*' : Array(stars).fill('*').join(' ');
+            line = ' '.repeat(leading) + starSegment;
+
         } else {
-            
+
             let starsThisRow;
             if (row === 0 || row === totalRows - 1) {
-                starsThisRow = 1;                 
-            } else if (row <= mid) {
-                starsThisRow = row * 2;           
+                starsThisRow = 1;
+            } else if (row <= midpoint) {
+                starsThisRow = row * 2;
                 if (starsThisRow > diamondSize) starsThisRow = diamondSize;
             } else {
                 starsThisRow = (totalRows - 1 - row) * 2;
                 if (starsThisRow > diamondSize) starsThisRow = diamondSize;
             }
 
-            
-            let starSegment;
-            if (starsThisRow === 1) {
-                starSegment = '*';
-            } else {
-                starSegment = '* '.repeat(starsThisRow - 1) + '*';
-            }
-
-            const spacesBefore = (diamondSize - starsThisRow) / 2;
-            line = ' '.repeat(spacesBefore) + starSegment;
+            const starSegment = Array(starsThisRow).fill('*').join(' ');
+            line = starSegment;
         }
-        completeDiamond += line + '\n';
+        completeDiamond += line.trimStart() + '\n';
     }
     return completeDiamond;
-    
+
     },
 
-    getUserInput() 
+    getUserInput()
     {
         const userInput =
             prompt('[ENTER IN A POSITIVE INTEGER] >>> ');
