@@ -2,7 +2,7 @@ const diamond = {
 
     generate(diamondSize) {
     if (!Number.isInteger(diamondSize) || diamondSize <= 0) {
-        return '[ENTER A POSITIVE INTEGER] >>> ';
+        return `[ENTER A POSITIVE INTEGER] >>> `;
     }
 
     let completeDiamond = '';
@@ -18,11 +18,9 @@ const diamond = {
 
             const distance = Math.abs(row - midpoint);
             const stars = diamondSize - distance * 2;
-            const rowWidth = stars * 2 - 1;
-            const maxWidth = diamondSize * 2 - 1;
-            const leading = (maxWidth - rowWidth) / 2;
-            const starSegment = stars === 1 ? '*' : Array(stars).fill('*').join(' ');
-            line = ' '.repeat(leading) + starSegment;
+
+            const starSegment = stars === 1 ? `*` : Array(stars).fill(`*`).join(` `);
+            line = `${starSegment}`;
 
         } else {
 
@@ -38,9 +36,9 @@ const diamond = {
             }
 
             const starSegment = Array(starsThisRow).fill('*').join(' ');
-            line = starSegment;
+            line = `${starSegment}`;
         }
-        completeDiamond += line.trimStart() + '\n';
+        completeDiamond += `${line.trimStart()}\n`;
     }
     return completeDiamond;
 
@@ -49,18 +47,17 @@ const diamond = {
     getUserInput()
     {
         const userInput =
-            prompt('[ENTER IN A POSITIVE INTEGER] >>> ');
+            prompt(`[ENTER IN A POSITIVE INTEGER] >>> `);
 
         if (userInput === null) {
             return null;
         }
 
-        const parsedIntegerInput =
-            parseInt(userInput, 10);
+        const parsedIntegerInput = parseInt(userInput, 10);
 
         if (isNaN(parsedIntegerInput) || parsedIntegerInput <= 0) {
 
-            alert('[POSITIVE INTEGERS ONLY]');
+            alert(`[POSITIVE INTEGERS ONLY]`);
 
             return this.getUserInput();
         }
@@ -82,7 +79,6 @@ generateDiamondButton.addEventListener('click', () => {
 
     if (userDiamondSize !== null) {
 
-        diamondOutputElement.textContent =
-            diamond.generate(userDiamondSize);
+        diamondOutputElement.textContent = diamond.generate(userDiamondSize);
     }
 });
