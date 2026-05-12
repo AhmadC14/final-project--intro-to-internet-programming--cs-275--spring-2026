@@ -1,54 +1,92 @@
-const diamond = { 
-    generate(size) {
-        if (!Number.isInteger(size) || size <= 0) {
-            return '[ENTER A POSITIVE INTEGER] >>> ';
-        }
+const diamond = {
+    
+    generate(diamondSize) {
+    if (!Number.isInteger(diamondSize) || diamondSize <= 0) {
+        return '[ENTER A POSITIVE INTEGER] >>> ';
+    }
 
-        let result = '';
-        const isOdd = size % 2 === 1;
+    let completeDiamond = '';
+    const isOdd = diamondSize % 2 === 1;
 
-        for (let row = 0; row < size; row++) {
-            let line = '';
+    const totalRows = isOdd ? diamondSize : diamondSize + 1;
+    const midpoint = Math.floor(totalRows / 2);  
 
-            if (isOdd) {
-                const spaces = Math.abs(Math.floor(size / 2) - row);
-                const stars = size - spaces * 2;
-                line = ' '.repeat(spaces) + '*'.repeat(stars);
+    for (let row = 0; row < totalRows; row++) {
+        let line = '';
+
+        if (isOdd) {
+
+            const distance = Math.abs(row - midpoint);
+            const stars = diamondSize - distance * 2;
+            const spaces = distance;
+            line = ' '.repeat(spaces) + '*'.repeat(stars);
+        } else {
+            
+            let starsThisRow;
+            if (row === 0 || row === totalRows - 1) {
+                starsThisRow = 1;                 
+            } else if (row <= mid) {
+                starsThisRow = row * 2;           
+                if (starsThisRow > diamondSize) starsThisRow = diamondSize;
             } else {
-                const mid = size / 2;
-                let stars, spaces;
-                if (row < mid) {
-                    stars = (row + 1) * 2;
-                    spaces = (size - stars) / 2;
-                } else {
-                    stars = (size - row) * 2;
-                    spaces = (size - stars) / 2;
-                }
-                line = ' '.repeat(spaces) + '* '.repeat(stars / 2).trim();
+                starsThisRow = (totalRows - 1 - row) * 2;
+                if (starsThisRow > diamondSize) starsThisRow = diamondSize;
             }
-            result += line + '\n';
+
+            
+            let starSegment;
+            if (starsThisRow === 1) {
+                starSegment = '*';
+            } else {
+                starSegment = '* '.repeat(starsThisRow - 1) + '*';
+            }
+
+            const spacesBefore = (diamondSize - starsThisRow) / 2;
+            line = ' '.repeat(spacesBefore) + starSegment;
         }
-        return result;
+        completeDiamond += line + '\n';
+    }
+    return completeDiamond;
+    
     },
 
-    getUserInput() {
-        let input = prompt('[ENTER IN A POSITIVE INTEGER] >>> ');
-        if (input === null) return null;
-        let num = parseInt(input, 10);
-        if (isNaN(num) || num <= 0) {
+    getUserInput() 
+    {
+        const userInput =
+            prompt('[ENTER IN A POSITIVE INTEGER] >>> ');
+
+        if (userInput === null) {
+            return null;
+        }
+
+        const parsedIntegerInput =
+            parseInt(userInput, 10);
+
+        if (isNaN(parsedIntegerInput) || parsedIntegerInput <= 0) {
+
             alert('[POSITIVE INTEGERS ONLY]');
+
             return this.getUserInput();
         }
-        return num;
+
+        return parsedIntegerInput;
     }
 };
 
-const diamondButton = document.getElementById('generateDiamondButton');
-const diamondOutput = document.getElementById('outputDiamond');
+const generateDiamondButton =
+    document.getElementById('generateDiamondButton');
 
-diamondButton.addEventListener('click', () => {
-    const n = diamond.getUserInput();
-    if (n !== null) {
-        diamondOutput.textContent = diamond.generate(n);
+const diamondOutputElement =
+    document.getElementById('outputDiamond');
+
+generateDiamondButton.addEventListener('click', () => {
+
+    const userDiamondSize =
+        diamond.getUserInput();
+
+    if (userDiamondSize !== null) {
+
+        diamondOutputElement.textContent =
+            diamond.generate(userDiamondSize);
     }
 });
