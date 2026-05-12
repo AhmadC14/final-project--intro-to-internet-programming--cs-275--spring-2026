@@ -1,68 +1,73 @@
-const input = window.prompt("Enter a number");
-const number = Number(input);
+const input = window.prompt('Please enter the size of your matrix:');
+
+const size = Number(input);
+
 const output = document.getElementById('output');
-let totalRows;
 
-if (number % 2 === 0) {
-    totalRows = number + 1;
-}
+output.textContent += `The size of your matrix is ${size} x ${size}\n`;
 
-else {
-    totalRows = number;
-}
+output.textContent += 'Here is your matrix:\n';
 
-for (let row = 1; row <= totalRows; row++) /* The Single For-Loop Logic*/ {
+const matrix = [];
 
-    let stars = '';
-    let spaces = '';
-    let totalStars;
+for (let index = 0; index < size * size; index++) {
+    const row = Math.floor(index / size);
+    const column = index % size;
 
-    if (number % 2 === 0) {
-
-        if (row === 1 || row === totalRows) {
-            totalStars = 1;
-        }
-        else if (row <= (number / 2) + 1) {
-            totalStars = (row - 1) * 2;
-        }
-
-        else {
-            totalStars = (totalRows - row) * 2;
-        }
-
-        let totalSpaces = number - totalStars;
-
-        for (let column = 1; column <= totalSpaces; column++) {
-            spaces += ' ';
-        }
-
-        for (let column = 1; column <= totalStars; column++) {
-            stars += '* ';
-        }
-
+    if (!matrix[row]) {
+        matrix[row] = [];
     }
 
-    else {
+    matrix[row][column] = 0;
 
-        if (row <= (number + 1) / 2) {
-            totalStars = (row * 2) - 1;
-        }
+    output.textContent += `${matrix[row][column]} `;
 
-        else {
-            totalStars = ((number - row + 1) * 2) - 1;
-        }
-
-        let totalSpaces = ((number + 1) - totalStars) / 2;
-
-        for (let column = 1; column <= totalSpaces; column++) /*Rendering Spaces*/ {
-            spaces += ' ';
-        }
-
-        for (let column = 1; column <= totalStars; column++) /*Rendering Stars*/ {
-            stars += '*';
-        }
-
+    if (column === size - 1) {
+        output.textContent += '\n';
     }
+}
 
-    output.textContent += `${spaces}${stars}\n`;
+output.textContent += 'Here is your matrix populated:\n';
+
+output.textContent += 'Printing matrix:\n';
+
+for (let index = 0; index < size * size; index++) {
+    const row = Math.floor(index / size);
+    const column = index % size;
+
+    matrix[row][column] = index + 1;
+
+    output.textContent += `${matrix[row][column]} `;
+
+    if (column === size - 1) {
+        output.textContent += '\n';
+    }
+}
+
+output.textContent += 'Flipping Matrix... matrix flipped:\n';
+
+output.textContent += 'Printing flipped matrix:\n';
+
+for (let index = 0; index < size * size; index++) {
+    const row = Math.floor(index / size);
+    const column = index % size;
+
+    if (row + column < size - 1) {
+        const temp = matrix[row][column];
+
+    matrix[row][column] = matrix[size - 1 - row][size - 1 - column];
+
+    matrix[size - 1 - row][size - 1 - column] = temp;
+    }
+}
+
+for (let index = 0; index < size * size; index++) {
+    const row = Math.floor(index / size);
+    const column = index % size;
+
+    output.textContent += `${matrix[row][column]} `;
+
+    if (column === size - 1) {
+        output.textContent += '\n';
+    }
 }
