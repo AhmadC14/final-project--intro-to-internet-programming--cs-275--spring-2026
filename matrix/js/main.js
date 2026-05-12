@@ -56,6 +56,6 @@ for (let row = 1; row <= totalRows; row++) {
 
         const stars = '*'.repeat(totalStars);
 
-    output.textContent += `${spaces}${stars}\n`;
+        output.textContent += `${spaces}${stars}\n`;
     }
 }

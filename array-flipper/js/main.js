@@ -55,9 +55,9 @@ for (let index = 0; index < size * size; index++) {
     if (row + column < size - 1) {
         const temp = matrix[row][column];
 
-    matrix[row][column] = matrix[size - 1 - row][size - 1 - column];
+        matrix[row][column] = matrix[size - 1 - row][size - 1 - column];
 
-    matrix[size - 1 - row][size - 1 - column] = temp;
+        matrix[size - 1 - row][size - 1 - column] = temp;
     }
 }
 
