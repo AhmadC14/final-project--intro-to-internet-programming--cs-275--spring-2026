@@ -21,7 +21,6 @@ for(let row = 0; row < total * 3; row++){
         }
 
         if (row === total - 1) {
-            phase = 1;
             console.log("");
             console.log("Populating matrix...matrix populated");
             console.log("");
