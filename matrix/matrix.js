@@ -23,4 +23,12 @@ for(let row = 0; row < total; row++){
             console.log(output.trim());
             output = "";
         }
+
+        if (row === total - 1) {
+            phase = 1;
+            console.log("");
+            console.log("Populating matrix...matrix populated");
+            console.log("");
+            console.log("Printing matrix:");
+        }
 }
