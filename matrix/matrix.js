@@ -10,7 +10,7 @@ let number = 1;
 let output = "";
 let phase = 0;
 
-for(let row = 0; row < total; row++){
+for(let row = 0; row < total * 3; row++){
 
     let column = row % size
 
