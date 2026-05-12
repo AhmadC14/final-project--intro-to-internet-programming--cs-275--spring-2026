@@ -11,11 +11,11 @@ for(let row = 0; row < userSize; row++){
 
             if(row == 0){
                 stars = 1;
-                spaces = Math.floor(userSize - 1);
+                spaces = userSize - 1;
 
             } else {
-                stars = (row * 2);
-                spaces = Math.floor(userSize  - row * 2);
+                stars = row * 2;
+                spaces = userSize - row * 2;
             }
             // spaces = Math.floor(userSize / 2) - row;
             console.log(" ".repeat(spaces) + " *".repeat(stars));
