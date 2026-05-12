@@ -8,7 +8,6 @@ console.log("Printing matrix with default values:");
 let total = size * size;
 let number = 1;
 let output = "";
-let phase = 0;
 
 for(let row = 0; row < total * 3; row++){
 
@@ -23,6 +22,7 @@ for(let row = 0; row < total * 3; row++){
     } else {
         phase = 2;
     }
+    let phase = Math.floor(row / total);
 
     if(phase === 0){
 
