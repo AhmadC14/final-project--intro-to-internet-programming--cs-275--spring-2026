@@ -7,6 +7,7 @@ for(let row = 0; row < userSize; row++){
     let spaces = 0;
 
     if(userSize % 2 == 0){
+
         if(row <= middle){
 
             if(row == 0){
@@ -19,10 +20,13 @@ for(let row = 0; row < userSize; row++){
             }
 
         } else {
-            stars = (userSize - row) * 2;
-            // spaces = row - (Math.floor(userSize / 2));
-            console.log(" *".repeat(stars));
-                spaces = (middle - row );
+            if(row == userSize){
+                stars = 1;
+            } else {
+                stars = (userSize - row) * 2;
+            }
+
+            spaces = userSize - stars;
         }
 
         console.log(" ".repeat(spaces) + " *".repeat(stars));
