@@ -8,6 +8,10 @@ body {
   margin: 0;
 }
 
+.container {
+  text-align: center;
+}
+
 #output {
   white-space: pre;
   font-size: 1.5rem;
