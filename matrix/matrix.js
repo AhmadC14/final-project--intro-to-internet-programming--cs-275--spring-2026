@@ -36,4 +36,19 @@ for(let row = 0; row < total * 3; row++){
             console.log("");
             console.log("Printing matrix:");
         }
+    }
+
+    if (phase === 1) {
+
+
+        if(column === 0){
+            output = "";
+        }
+
+        output += number++ + "   ";
+
+        if (column === size - 1) {
+            console.log(output.trim());
+        }
+
 }
