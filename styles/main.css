@@ -1,11 +1,15 @@
 body {
   margin: 0 auto;
   text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 table {
   border-collapse: collapse;
-  border: 1px solid rgb(11, 0, 0);
+  border: 5px solid rgb(11, 0, 0);
   font-family: sans-serif;
   font-size: 0.8rem;
   letter-spacing: 1px;
@@ -20,4 +24,12 @@ td {
 
 tbody{
   border: 0;
+}
+
+button{
+  height: 50px;
+  background-color: #48494b;
+  border: 2px black;
+  color: white;
+  border-radius: 8px;
 }
