@@ -17,14 +17,15 @@ for(let row = 0; row < userSize; row++){
                 stars = row * 2;
                 spaces = userSize - row * 2;
             }
-            // spaces = Math.floor(userSize / 2) - row;
-            console.log(" ".repeat(spaces) + " *".repeat(stars));
+
         } else {
             stars = (userSize - row) * 2;
             // spaces = row - (Math.floor(userSize / 2));
             console.log(" *".repeat(stars));
                 spaces = (middle - row );
         }
+
+        console.log(" ".repeat(spaces) + " *".repeat(stars));
 
     } else {
         if(row <= middle){
