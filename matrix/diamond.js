@@ -1,11 +1,11 @@
 const outputPane = document.getElementById("output");
 
-// Gets input from user
+// Get user input
 export const renderDiamond = () => {
     const rawInput = window.prompt(`Enter a number:`);
     const gridSize = parseInt(rawInput, 10);
 
-    // Validates user input
+    // Validate user input
     if (isNaN(gridSize) || gridSize <= 0) {
         const warningText = `Please enter a valid positive integer.`;
         outputPane.textContent = warningText;
@@ -23,7 +23,7 @@ export const renderDiamond = () => {
         const offsetFromCenter = Math.abs(midPoint - currentRow);
         let paddingSpaces, starSegment;
 
-        // If matrix is an even number
+        // Even number
         if (evenDimension) {
             const starTotal =
                 offsetFromCenter === midPoint
@@ -33,7 +33,7 @@ export const renderDiamond = () => {
             paddingSpaces = gridSize - starTotal + 1;
             starSegment = `* `.repeat(Math.max(starTotal, 0)).trimEnd();
         }
-        // If matrix is an odd number
+        // Odd number
         else {
             const starTotal = gridSize - (2 * offsetFromCenter);
             paddingSpaces = offsetFromCenter;

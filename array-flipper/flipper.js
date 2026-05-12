@@ -32,7 +32,7 @@ const runArrayFlipper = () => {
     const totalCells = matrixSize * matrixSize;
     let phase = `fill`;
 
-    // Print empty 0's for matrix
+    // Fill empty zeroes for matrix
     for (let step = 0; step < totalCells * 2; step++) {
         const index = step % totalCells;
         const row = Math.floor(index / matrixSize);
@@ -63,7 +63,7 @@ const runArrayFlipper = () => {
         }
     }
 
-    // Print matrices
+    // Print matrices to screen
     displayedOutput += buildMatrixString(matrix, `Printing flipped matrix`);
 
     outputElement.textContent = displayedOutput;
