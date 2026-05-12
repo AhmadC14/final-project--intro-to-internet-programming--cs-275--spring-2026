@@ -7,6 +7,15 @@ for(let row = 0; row < userSize; row++){
     let spaces = 0;
 
     if(Math.floor(userSize % 2 == 0)){
+        if(row <= Math.floor(userSize / 2)){
+            stars = (row * 2);
+            // spaces = Math.floor(userSize / 2) - row;
+            console.log(" *".repeat(stars));
+        } else {
+            stars = (userSize - row) * 2;
+            // spaces = row - (Math.floor(userSize / 2));
+            console.log(" *".repeat(stars));
+        }
 
     } else {
         if(row <= Math.floor(userSize / 2)){
