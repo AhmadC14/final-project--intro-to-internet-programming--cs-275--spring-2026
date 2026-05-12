@@ -4,7 +4,7 @@ const {src, watch, dest, series} = require(`gulp`),
     jsLinter = require(`gulp-eslint`),
     htmlCompressor = require(`gulp-htmlmin`),
     cssCompressor = require(`gulp-clean-css`),
-    jsCompressor = require(`gulp-uglify`),
+    jsCompressor = require(`gulp-terser`),
     browserSync = require(`browser-sync`),
     reload = browserSync.reload;
 
