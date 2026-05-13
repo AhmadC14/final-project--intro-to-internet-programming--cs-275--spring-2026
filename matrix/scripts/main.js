@@ -1,19 +1,15 @@
-let number;
+import { getInput } from "./getInput.js";
+
+let number = getInput();
 let checkNumber = true;
 let body = document.getElementById(`body`);
 
-function getInput () {
-    number = window.prompt(`Please enter a positive integer greater than 1:`);
-}
-
-getInput();
-
 while (checkNumber) {
-    if (parseInt(number)) {
+    if (parseInt(number) === 0 ||parseInt(number)) {
         number = parseInt(number);
         if (number <= 1) {
             console.error(`Please enter a number greater than 1.`);
-            getInput();
+            number = getInput();
         }
         else {
             checkNumber = false;
@@ -21,7 +17,7 @@ while (checkNumber) {
     }
     else {
         console.error(`You did not enter a numeric value, please try again.`);
-        getInput();
+        number = getInput();
     }
 }
 
