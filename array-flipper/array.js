@@ -1,4 +1,4 @@
-let userSize = parseInt(window.prompt("Enter a number: "));
+let userSize = parseInt(window.prompt(`Enter a number:`));
 
 let middle = Math.floor(userSize / 2);
 let height = 0;
@@ -36,18 +36,18 @@ for(let row = 0; row < height; row++){
             spaces = userSize - stars;
         }
 
-        console.log(" ".repeat(spaces) + " *".repeat(stars));
+        console.log(` `.repeat(spaces) + ` *`.repeat(stars));
 
     } else {
         if(row <= middle){
             stars = (row * 2) + 1;
             spaces = middle - row;
-            console.log(" ".repeat(spaces) + "*".repeat(stars));
+            console.log(` `.repeat(spaces) + `*`.repeat(stars));
 
         } else {
             stars = (userSize - row) * 2 - 1;
             spaces = row - middle;
-            console.log(" ".repeat(spaces) + "*".repeat(stars));
+            console.log(` `.repeat(spaces) + `*`.repeat(stars));
         }
     }
 }
