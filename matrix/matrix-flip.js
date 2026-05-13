@@ -1,33 +1,34 @@
 const input = parseInt(window.prompt("Input the size of your desired matrix. "));
+const output = document.getElementById(`output`);
 const size = input * input;
 let matrix = Array(input).fill(0).map(() => Array(input).fill(0));
 
 export default function buildMatrix() {
     const defaultMatrix = Array(input).fill(0).map(() => Array(input).fill(0));
 
-    console.log(`Your matrix is ${input} x ${input}.`);
-    console.log("Printing matrix with default values: ");
-    console.log(defaultMatrix);
+    output.textContent += `Your matrix is ${input} x ${input}. \n`;
+    output.textContent += "Printing matrix with default values: \n \n";
+    output.textContent += `${defaultMatrix} \n \n`;
 }
 
 export function populateMatrix() {
     let populatedMatrix = Array(input).fill(0).map(() => Array(input).fill(0));
     let value = 1;
 
-    console.log("Populating matrix... ");
+    output.textContent += "Populating matrix... \n";
     for (let row = 0; row < populatedMatrix.length; row++) {
         for (let col = 0; col < populatedMatrix.length; col++) {
             populatedMatrix[row][col] = value++;
         }
     }
-    console.log("Matrix populated! ");
-    console.log(populatedMatrix);
+    output.textContent += "Matrix populated! \n \n";
+    output.textContent += `${populatedMatrix} \n \n`;
 }
 
 export function swapFunction() {
     let flippedMatrix = matrix;
     let value = 1;
-    
+
     for (let row = 0; row < matrix.length; row++) {
         for (let col = 0; col < matrix.length; col++) {
             matrix[row][col] = value++;
@@ -43,6 +44,6 @@ export function swapFunction() {
             [matrix[row][col], matrix[input - 1 - row][input - 1 - col]] = [matrix[input - 1 - row][input - 1 - col], matrix[row][col]];
         }
     }
-    console.log("Matrix flipped! ");
-    console.log(flippedMatrix);
+    output.textContent += "Matrix flipped! \n \n";
+    output.textContent += `${flippedMatrix}`;
 }
