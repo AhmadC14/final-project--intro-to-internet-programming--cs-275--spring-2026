@@ -17,7 +17,6 @@ while (size) {
             getSize();
         }
         else {
-            console.log(`Number is ${arraySize}`);
             size = false;
         }
     }
@@ -101,4 +100,3 @@ arrayFlipper = array => {
 printArray(arraySize);
 populateArray(array);
 arrayFlipper(array);
-

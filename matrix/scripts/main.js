@@ -16,7 +16,6 @@ while (checkNumber) {
             getInput();
         }
         else {
-            console.log(`Number is ${number}`);
             checkNumber = false;
         }
     }
@@ -76,5 +75,3 @@ for (let row = 0, spaces = 0, stars = 0; row < totalRows; row++) {
     }
     body.append(tableRow);
 }
-
-
