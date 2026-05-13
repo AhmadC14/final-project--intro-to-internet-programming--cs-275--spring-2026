@@ -1,5 +1,4 @@
 import {getInput} from "./getInput.js";
-import {printArray} from "./printArray.js";
 
 let arraySize = getInput();
 let array = [];
@@ -23,7 +22,26 @@ while (size) {
     }
 }
 
-printArray(array, size, arraySize, body);
+let printArray = size => {
+    body.children[0].innerText += `Your matrix is ${size} x ${size}`;
+
+    size = size * size;
+
+    for (let i = 0; i < size; i++) {
+        array[i] = 0;
+    }
+
+    body.children[1].innerText += `Printing matrix with default values:\n`;
+
+    for (let index = 0; index < array.length; index++) {
+        body.children[1].innerText += ` ${array[index]}`;
+
+        // End of row
+        if ((index + 1) % arraySize === 0) {
+            body.children[1].innerText += "\n";
+        }
+    }
+};
 
 let populateArray = array => {
     body.children[2].innerText += `Populating matrix...matrix populated\n\n`;
