@@ -3,6 +3,7 @@
 !.gitignore
 !.editorconfig
 !README.md
+!gulpfile.js
 
 !array-flipper/
 !matrix/
