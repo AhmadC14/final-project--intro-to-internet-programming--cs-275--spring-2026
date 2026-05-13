@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Courier New', monospace;
+    color: #ffffff;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+main {
+    background: rgb(0, 0, 0);
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+}
+h1 {
+    font-family: "Open Sans", sans-serif;
+}
+button {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-family: monospace;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+button:hover {
+    background: #555;
+}
+#matrixOutput {
+    background: #000000;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre;
+    letter-spacing: 0;
+    text-align: left;
+}
