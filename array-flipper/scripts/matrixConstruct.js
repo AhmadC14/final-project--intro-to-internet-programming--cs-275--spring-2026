@@ -21,11 +21,19 @@ export const matrixConstruct = {
             const row = Math.floor(i / matrixSize);
             const col = i % matrixSize;
             const isOnAntiDiagonal = row + col === matrixSize - 1;
-            if (!isOnAntiDiagonal && row + col < matrixSize - 1) {
+
+            if (isOnAntiDiagonal) {
+                flippedMatrix[row][col] = populatedMatrix[row][col];
+            } else {
                 const mirrorRow = matrixSize - 1 - col;
                 const mirrorCol = matrixSize - 1 - row;
-                flippedMatrix[row][col] = populatedMatrix[mirrorRow][mirrorCol];
-                flippedMatrix[mirrorRow][mirrorCol] = populatedMatrix[row][col];
+
+                if (row < mirrorRow || (row === mirrorRow && col < mirrorCol)) {
+                    flippedMatrix[row][col] = populatedMatrix[mirrorRow][mirrorCol];
+                    flippedMatrix[mirrorRow][mirrorCol] = populatedMatrix[row][col];
+                } else {
+                    flippedMatrix[row][col] = populatedMatrix[mirrorRow][mirrorCol];
+                }
             }
         }
 
