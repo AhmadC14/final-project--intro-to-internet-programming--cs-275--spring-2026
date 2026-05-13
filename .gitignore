@@ -10,6 +10,5 @@
 !.babelrc
 !.eslintrc
 !gulpfile.js
-!.stylelintrc.json
 !package-lock.json
 !package.json
