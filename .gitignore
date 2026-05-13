@@ -6,3 +6,9 @@
 
 !array-flipper/
 !matrix/
+
+!.babelrc
+!.eslintrc
+!gulpfile.js
+!package-lock.json
+!package.json
