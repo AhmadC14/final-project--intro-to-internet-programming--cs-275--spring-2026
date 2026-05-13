@@ -1,3 +1,8 @@
 *
 
 !.gitignore
+!index.html
+!main.css
+!main.js
+!gulpfile.js
+!package.json

@@ -1,8 +1,5 @@
-*
+*.editorconfig
+*README.md
+*DS_Store
 
 !.gitignore
-!.editorconfig
-!README.md
-
-!array-flipper/
-!matrix/
