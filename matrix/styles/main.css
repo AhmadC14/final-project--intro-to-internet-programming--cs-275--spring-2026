@@ -1,0 +1,9 @@
+table {
+  margin: auto;
+  font-family: monospace;
+  font-size: 30px;
+}
+
+.top, .bottom {
+  transform: translateX(-10px);
+}
