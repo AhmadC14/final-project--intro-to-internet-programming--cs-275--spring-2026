@@ -1,3 +1,5 @@
 *
 
 !.gitignore
+!diamond.js
+!main.js
