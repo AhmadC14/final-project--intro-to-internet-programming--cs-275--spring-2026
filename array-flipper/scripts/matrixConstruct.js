@@ -15,18 +15,24 @@ export const matrixConstruct = {
         const populatedMatrix = Array.from({ length: matrixSize }, (_, r) =>
             Array.from({ length: matrixSize }, (_, c) => r * matrixSize + c + 1)
         );
+        const flippedMatrix = Array.from({ length: matrixSize }, (_, r) => [...populatedMatrix[r]]);
+
+        for (let i = 0; i < matrixSize * matrixSize; i++) {
+            const row = Math.floor(i / matrixSize);
+            const col = i % matrixSize;
+            const isOnAntiDiagonal = row + col === matrixSize - 1;
+            if (!isOnAntiDiagonal && row + col < matrixSize - 1) {
+                const mirrorRow = matrixSize - 1 - col;
+                const mirrorCol = matrixSize - 1 - row;
+                flippedMatrix[row][col] = populatedMatrix[mirrorRow][mirrorCol];
+                flippedMatrix[mirrorRow][mirrorCol] = populatedMatrix[row][col];
+            }
+        }
+
         outputMessages.push(`[ POPULATING MATRIX >>> MATRIX POPULATED ]\n`);
         outputMessages.push(`[ PRINTING MATRIX ] >>>`);
         outputMessages.push(populatedMatrix.map(row => row.map(cell => cell.toString().padStart(3, ` `)).join(` `)).join(`\n`));
         outputMessages.push(`\n`);
-
-        const flippedMatrix = Array.from({ length: matrixSize }, () => Array(matrixSize).fill(0));
-        for (let i = 0; i < matrixSize * matrixSize; i++) {
-            const row = Math.floor(i / matrixSize);
-            const col = i % matrixSize;
-            flippedMatrix[matrixSize - 1 - col][matrixSize - 1 - row] = populatedMatrix[row][col];
-        }
-
         outputMessages.push(`[ FLIPPING MATRIX >>> MATRIX FLIPPED ]\n`);
         outputMessages.push(`PRINTING FLIPPED MATRIX:`);
         outputMessages.push(flippedMatrix.map(row => row.map(cell => cell.toString().padStart(3, ` `)).join(` `)).join(`\n`));
