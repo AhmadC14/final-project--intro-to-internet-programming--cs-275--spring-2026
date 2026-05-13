@@ -1,5 +1,5 @@
-import buildMatrix, {populateMatrix, flipper} from "./matrix-flip.js";
+import buildMatrix, {populateMatrix, swapFunction} from "./matrix-flip.js";
 
 buildMatrix();
 populateMatrix();
-flipper();
+swapFunction();
