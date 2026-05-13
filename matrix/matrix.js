@@ -1,9 +1,4 @@
-//let size = parseInt(window.prompt("Enter the size of your matrix:"));
-
-//console.log("Your matrix is " + size + " x " + size);
-//console.log("");
-
-//console.log("Printing matrix with default values:");
+// I had to run my code using "npx http-server" due to the modules giving me an error in my browsers
 
 export function completeMatrix(size){
     let total = size * size;
@@ -15,7 +10,6 @@ export function completeMatrix(size){
 
         let current = row % total;
         let column = current % size;
-        //let currentRow = Math.floor(current / size);
 
         let phase = Math.floor(row / total);
 
