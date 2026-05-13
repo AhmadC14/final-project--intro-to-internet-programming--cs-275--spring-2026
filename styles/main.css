@@ -1,0 +1,31 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border: 5px solid #48494b;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border-spacing: 0;
+  margin: auto;
+}
+
+th,
+td {
+  padding: 8px 10px;
+}
+
+button{
+  height: 50px;
+  background-color: #48494b;
+  border: 2px black;
+  color: white;
+  border-radius: 8px;
+}
