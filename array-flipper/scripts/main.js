@@ -1,20 +1,17 @@
-let arraySize;
+import {getInput} from "./getInput.js";
+import {printArray} from "./printArray.js";
+
+let arraySize = getInput();
 let array = [];
 let size = true;
 const body = document.querySelector(`body`);
-
-let getSize = () => {
-    arraySize = window.prompt(`Please enter a positive integer greater than 1:`);
-};
-
-getSize();
 
 while (size) {
     if (parseInt(arraySize) === 0 || parseInt(arraySize)) {
         arraySize = parseInt(arraySize);
         if (arraySize <= 1) {
             console.error(`Please enter a number greater than 1.`);
-            getSize();
+            arraySize = getInput();
         }
         else {
             size = false;
@@ -22,30 +19,11 @@ while (size) {
     }
     else {
         console.error(`You did not enter a numeric value, please try again.`);
-        getSize();
+        arraySize = getInput();
     }
 }
 
-let printArray = size => {
-    body.children[0].innerText += `Your matrix is ${size} x ${size}`;
-
-    size = size * size;
-
-    for (let i = 0; i < size; i++) {
-        array[i] = 0;
-    }
-
-    body.children[1].innerText += `Printing matrix with default values:\n`;
-
-    for (let index = 0; index < array.length; index++) {
-        body.children[1].innerText += ` ${array[index]}`;
-
-        // End of row
-        if ((index + 1) % arraySize === 0) {
-            body.children[1].innerText += "\n";
-        }
-    }
-};
+printArray(array, size, arraySize, body);
 
 let populateArray = array => {
     body.children[2].innerText += `Populating matrix...matrix populated\n\n`;
@@ -70,7 +48,7 @@ let swap = (array, firstIndex, secondIndex) => {
     array[secondIndex] = temp;
 }
 
-arrayFlipper = array => {
+let arrayFlipper = array => {
     body.children[3].innerText += `Flipping matrix...matrix flipped:\n\n`;
 
     for (let index = 0; index < array.length; index++) {
