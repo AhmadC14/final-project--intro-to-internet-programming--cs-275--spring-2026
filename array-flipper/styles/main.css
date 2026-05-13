@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Courier New', monospace;
     color: #ffffff;
@@ -13,7 +12,6 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
 main {
     background: rgb(0, 0, 0);
     border: 2px solid #ffffff;
@@ -21,11 +19,9 @@ main {
     padding: 2rem;
     text-align: center;
 }
-
 h1 {
     font-family: "Open Sans", sans-serif;
 }
-
 button {
     background: #ffffff;
     color: rgb(0, 0, 0);
@@ -36,11 +32,9 @@ button {
     margin: 1rem 0;
     cursor: pointer;
 }
-
 button:hover {
     background: #555;
 }
-
 #matrixOutput {
     background: #000000;
     border: 1px solid #ccc;
