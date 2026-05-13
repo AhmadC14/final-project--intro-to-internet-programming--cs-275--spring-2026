@@ -1,7 +1,5 @@
 // I had to run my code using "npx http-server" due to the modules giving me an error in my browsers
 
-// let userSize = parseInt(window.prompt(`Enter a number:`));
-
 export function completeDiamond(userSize){
     let middle = Math.floor(userSize / 2);
     let height = 0;
