@@ -1,8 +1,7 @@
 *
 
-!.gitignore
 !.editorconfig
+!.gitignore
 !README.md
-
 !array-flipper/
-!matrix/
+!diamond/
