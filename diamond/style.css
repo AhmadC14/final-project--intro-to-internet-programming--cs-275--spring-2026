@@ -1,1 +1,14 @@
-/* MY CODE GOES HERE */
+body {
+    font-family: "Space Mono", monospace;
+    text-align: center;
+    margin: 30px;
+    background-color: rgb(226, 230, 242);
+}
+
+output {
+    width: 55px;
+    height: 55px;
+    font-size: 25px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
